@@ -111,23 +111,23 @@ namespace blockyTalkyBLE {
     /**
      * Handles any incoming message
      */
-    let latestMessage = null;
-    let messageArray = null;
-    let handleType = null;
-    let handleKey = null;
-    let handleVal = null;
-    let handlerToExamine = null;
+    // let latestMessage = null;
+    // let messageArray = null;
+    // let handleType = null;
+    // let handleKey = null;
+    // let handleVal = null;
+    // let handlerToExamine = null;
     export function handleIncomingUARTData() {
-        latestMessage = bluetooth.uartReadUntil(terminator)
-        messageArray = splitString(delimiter, latestMessage)
+        let latestMessage = bluetooth.uartReadUntil(terminator)
+        let messageArray = splitString(delimiter, latestMessage)
 
         if (messageArray.length < 3){
             return
         }
 
-        handleType = getValueTypeIndicatorForString(messageArray[0])
-        handleKey = messageArray[1]
-        handleVal = messageArray[2]
+        let handleType = getValueTypeIndicatorForString(messageArray[0])
+        let handleKey = messageArray[1]
+        let handleVal = messageArray[2]
 
         if (handleType === ValueTypeIndicator.Number) {
             messageContainer.numberValue = parseInt(handleVal)
