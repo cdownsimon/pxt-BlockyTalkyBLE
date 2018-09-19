@@ -111,10 +111,10 @@ namespace blockyTalkyBLE {
     /**
      * Handles any incoming message
      */
-    let latestMessage = "";
+    let latestMessage = null;
     let messageArray = null;
     let handleType = null;
-    let handleKey = "";
+    let handleKey = null;
     let handleVal = null;
     let handlerToExamine = null;
     export function handleIncomingUARTData() {
