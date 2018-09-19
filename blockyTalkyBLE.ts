@@ -128,7 +128,7 @@ namespace blockyTalkyBLE {
         } else if (type === ValueTypeIndicator.String) {
             messageContainer.stringValue = val
         } else {
-            messageContainer.stringValue = val
+            return
         }
 
         let handlerToExamine = handlers;
@@ -139,7 +139,7 @@ namespace blockyTalkyBLE {
 
         while (handlerToExamine != null) {
             if (handlerToExamine.key == key && handlerToExamine.type == type) {
-                // handlerToExamine.callback(messageContainer)
+                handlerToExamine.callback(messageContainer)
             }
             handlerToExamine = handlerToExamine.next
         }
