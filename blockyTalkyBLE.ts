@@ -139,6 +139,8 @@ namespace blockyTalkyBLE {
             }
             handlerToExamine = handlerToExamine.next
         }
+
+        handlers = null;
     }
 
     bluetooth.startUartService()
