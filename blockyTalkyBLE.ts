@@ -139,11 +139,15 @@ namespace blockyTalkyBLE {
             }
             handlerToExamine = handlerToExamine.next
         }
+
+        let buffer = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
+        while (buffer != null){
+            buffer = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
+        }
     }
 
     bluetooth.startUartService()
     basic.forever(() => {
         blockyTalkyBLE.handleIncomingUARTData()
-        basic.pause(100)
     })
 }
