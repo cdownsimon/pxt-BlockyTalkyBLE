@@ -118,6 +118,7 @@ namespace blockyTalkyBLE {
     let handleVal = "";
     let handlerToExamine: LinkedKeyHandlerList = null;
     export function handleIncomingUARTData() {
+        basic.showString("00")
         latestMessage = bluetooth.uartReadUntil(terminator)
         // basic.showString(latestMessage)
         messageArray = splitString(delimiter, latestMessage)
@@ -125,12 +126,12 @@ namespace blockyTalkyBLE {
         if (messageArray.length < 3){
             return
         }
-        basic.showString("1")
+        basic.showString("11")
         handleType = getValueTypeIndicatorForString(messageArray[0])
         handleKey = messageArray[1]
         handleVal = messageArray[2]
 
-        basic.showString("2")
+        basic.showString("22")
         if (handleType === ValueTypeIndicator.Number) {
             messageContainer.numberValue = parseInt(handleVal)
         } else if (handleType === ValueTypeIndicator.String) {
@@ -139,7 +140,7 @@ namespace blockyTalkyBLE {
             return
         }
 
-        basic.showString("3")
+        basic.showString("33")
         handlerToExamine = handlers;
 
         if (handlerToExamine == null) { //empty handler list
