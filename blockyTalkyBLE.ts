@@ -125,11 +125,12 @@ namespace blockyTalkyBLE {
         if (messageArray.length < 3){
             return
         }
-
+        basic.showString("1")
         handleType = getValueTypeIndicatorForString(messageArray[0])
         handleKey = messageArray[1]
         handleVal = messageArray[2]
 
+        basic.showString("2")
         if (handleType === ValueTypeIndicator.Number) {
             messageContainer.numberValue = parseInt(handleVal)
         } else if (handleType === ValueTypeIndicator.String) {
@@ -138,6 +139,7 @@ namespace blockyTalkyBLE {
             return
         }
 
+        basic.showString("3")
         handlerToExamine = handlers;
 
         if (handlerToExamine == null) { //empty handler list
@@ -145,10 +147,10 @@ namespace blockyTalkyBLE {
         }
 
         while (handlerToExamine != null) {
-            basic.showString("1")
+            // basic.showString("1")
             if (handlerToExamine.key == handleKey && handlerToExamine.type == handleType) {
                 handlerToExamine.callback(messageContainer)
-                basic.showString("2")
+                // basic.showString("2")
             }
             handlerToExamine = handlerToExamine.next
         }
