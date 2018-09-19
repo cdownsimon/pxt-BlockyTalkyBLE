@@ -126,7 +126,7 @@ namespace blockyTalkyBLE {
         if (messageArray.length < 3){
             return
         }
-        
+
         handleType = getValueTypeIndicatorForString(messageArray[0])
         handleKey = messageArray[1]
         handleVal = messageArray[2]
@@ -139,7 +139,6 @@ namespace blockyTalkyBLE {
             return
         }
 
-        basic.showString("33")
         handlerToExamine = handlers;
 
         if (handlerToExamine == null) { //empty handler list
@@ -149,9 +148,7 @@ namespace blockyTalkyBLE {
         while (handlerToExamine != null) {
             // basic.showString("1")
             if (handlerToExamine.key == handleKey && handlerToExamine.type == handleType) {
-                basic.showString("44")
                 handlerToExamine.callback(messageContainer)
-                // basic.showString("2")
             }
             handlerToExamine = handlerToExamine.next
         }
