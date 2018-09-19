@@ -137,7 +137,7 @@ namespace blockyTalkyBLE {
             return
         }
 
-        handlerToExamine = handlers;
+        let handlerToExamine = handlers;
 
         if (handlerToExamine == null) { //empty handler list
             basic.showString("nohandler")
