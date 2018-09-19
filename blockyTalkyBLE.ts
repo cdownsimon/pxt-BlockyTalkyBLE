@@ -4,13 +4,6 @@ namespace blockyTalkyBLE {
     let terminator = "#";
     let handlers: LinkedKeyHandlerList = null;
 
-    let latestMessage = null;
-    let messageArray = null;
-    let handleType = null;
-    let handleKey = null;
-    let handleVal = null;
-    let handlerToExamine = null;
-
     class LinkedKeyHandlerList {
         key: string;
         type: ValueTypeIndicator;
@@ -118,6 +111,12 @@ namespace blockyTalkyBLE {
     /**
      * Handles any incoming message
      */
+    let latestMessage = null;
+    let messageArray: string[] = [];
+    let handleType: ValueTypeIndicator = null;
+    let handleKey = "";
+    let handleVal = "";
+    let handlerToExamine: LinkedKeyHandlerList = null;
     export function handleIncomingUARTData() {
         latestMessage = bluetooth.uartReadUntil(terminator)
         messageArray = splitString(delimiter, latestMessage)
