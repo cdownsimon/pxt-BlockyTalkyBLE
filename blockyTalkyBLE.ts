@@ -119,8 +119,6 @@ namespace blockyTalkyBLE {
     let handlerToExamine: LinkedKeyHandlerList = null;
     export function handleIncomingUARTData() {
         latestMessage = bluetooth.uartReadUntil(terminator)
-        basic.showString("11")
-        // basic.showString(latestMessage)
         messageArray = splitString(delimiter, latestMessage)
 
         if (messageArray.length < 3){
