@@ -139,7 +139,7 @@ namespace blockyTalkyBLE {
 
         while (handlerToExamine != null) {
             if (handlerToExamine.key == key && handlerToExamine.type == type) {
-                handlerToExamine.callback(messageContainer)
+                // handlerToExamine.callback(messageContainer)
             }
             handlerToExamine = handlerToExamine.next
         }
