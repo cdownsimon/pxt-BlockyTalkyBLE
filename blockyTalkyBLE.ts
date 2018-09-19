@@ -145,10 +145,10 @@ namespace blockyTalkyBLE {
         }
 
         while (handlerToExamine != null) {
-            basic.showString(1)
+            basic.showString("1")
             if (handlerToExamine.key == handleKey && handlerToExamine.type == handleType) {
                 handlerToExamine.callback(messageContainer)
-                basic.showString(2)
+                basic.showString("2")
             }
             handlerToExamine = handlerToExamine.next
         }
