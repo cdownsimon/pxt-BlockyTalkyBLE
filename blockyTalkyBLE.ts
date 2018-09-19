@@ -111,7 +111,7 @@ namespace blockyTalkyBLE {
     /**
      * Handles any incoming message
      */
-    let latestMessage = null;
+    let latestMessage = "";
     let messageArray: string[] = [];
     let handleType: ValueTypeIndicator = null;
     let handleKey = "";
