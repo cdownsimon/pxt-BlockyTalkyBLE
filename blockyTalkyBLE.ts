@@ -115,6 +115,10 @@ namespace blockyTalkyBLE {
         let latestMessage = bluetooth.uartReadUntil(terminator)
         let messageArray = splitString(delimiter, latestMessage)
 
+        if (messageArray.length < 3){
+            return
+        }
+
         let type = getValueTypeIndicatorForString(messageArray[0])
         let key = messageArray[1]
         let val = messageArray[2]
@@ -140,10 +144,6 @@ namespace blockyTalkyBLE {
             handlerToExamine = handlerToExamine.next
         }
 
-        // let buffer = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
-        // while (buffer != null){
-        //     buffer = bluetooth.uartReadUntil(serial.delimiters(Delimiters.NewLine))
-        // }
     }
 
     bluetooth.startUartService()
